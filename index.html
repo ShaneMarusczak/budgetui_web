@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BudgeTUI — Privacy-First Terminal Finance Tracker</title>
+    <meta name="description" content="A local-only, privacy-first personal finance tracker for the terminal. Built with Rust. No cloud, no subscriptions, no compromises." />
+    <meta name="theme-color" content="#1e1e2e" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="nav">
+      <div class="navInner">
+        <a href="#" class="navLogo"><span class="prompt">$</span> budgetui</a>
+        <div class="navLinks">
+          <a href="#features">Features</a>
+          <a href="#demo">Demo</a>
+          <a href="#install">Install</a>
+          <a href="https://github.com/ShaneMarusczak/budgetui" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <button id="mobileMenuBtn" class="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div id="mobileMenu" class="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/ShaneMarusczak/budgetui" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="heroContent">
+          <h1 class="heroTitle reveal">Your finances. Your terminal.<br /><span class="accent">Your rules.</span></h1>
+          <p class="heroSub reveal">A privacy-first personal finance tracker that lives entirely on your machine. No cloud. No subscriptions. No compromises.</p>
+          <div class="heroCtas reveal">
+            <a href="#install" class="btnPrimary">Get Started</a>
+            <a href="https://github.com/ShaneMarusczak/budgetui" target="_blank" rel="noreferrer" class="btnSecondary">View on GitHub</a>
+          </div>
+        </div>
+        <div class="heroTerminal reveal">
+          <div class="terminal">
+            <div class="terminalBar">
+              <div class="terminalDots">
+                <span class="dot dotRed"></span>
+                <span class="dot dotYellow"></span>
+                <span class="dot dotGreen"></span>
+              </div>
+              <span class="terminalTitle">budgetui</span>
+              <span class="terminalSpacer"></span>
+            </div>
+            <div class="terminalBody">
+              <div class="termTabs">
+                <span class="termTabActive">Dashboard</span>
+                <span class="termTabInactive">Transactions</span>
+                <span class="termTabInactive">Import</span>
+                <span class="termTabInactive">Categories</span>
+                <span class="termTabInactive">Budgets</span>
+              </div>
+              <div class="termDivider"></div>
+              <div id="heroTerminalContent" class="termContent">
+                <div class="termCards">
+                  <div class="termCard termCardBlue">
+                    <div class="termCardLabel">Income</div>
+                    <div class="termCardValue tGreen">+$4,820.00</div>
+                  </div>
+                  <div class="termCard termCardRed">
+                    <div class="termCardLabel">Expenses</div>
+                    <div class="termCardValue tRed">-$3,247.50</div>
+                  </div>
+                  <div class="termCard termCardGreen">
+                    <div class="termCardLabel">Net</div>
+                    <div class="termCardValue tGreen">+$1,572.50</div>
+                  </div>
+                </div>
+                <div class="termSection">
+                  <div class="termSectionTitle">Spending by Category</div>
+                  <div class="termBarRow"><span class="termBarLabel">Rent/Mortgage</span><span class="termBar tBgRed" style="width: 100%"></span><span class="termBarValue">$1,450.00</span></div>
+                  <div class="termBarRow"><span class="termBarLabel">Groceries</span><span class="termBar tBgPeach" style="width: 47%"></span><span class="termBarValue">$687.30</span></div>
+                  <div class="termBarRow"><span class="termBarLabel">Dining Out</span><span class="termBar tBgYellow" style="width: 28%"></span><span class="termBarValue">$412.80</span></div>
+                  <div class="termBarRow"><span class="termBarLabel">Utilities</span><span class="termBar tBgGreen" style="width: 20%"></span><span class="termBarValue">$285.40</span></div>
+                  <div class="termBarRow"><span class="termBarLabel">Transport</span><span class="termBar tBgTeal" style="width: 15%"></span><span class="termBarValue">$212.00</span></div>
+                  <div class="termBarRow"><span class="termBarLabel">Shopping</span><span class="termBar tBgMauve" style="width: 14%"></span><span class="termBarValue">$200.00</span></div>
+                </div>
+                <div class="termSection">
+                  <div class="termSectionTitle">12-Month Trend</div>
+                  <div class="termSparkline">
+                    <span class="sparkBar" style="height: 20%"></span>
+                    <span class="sparkBar" style="height: 30%"></span>
+                    <span class="sparkBar" style="height: 50%"></span>
+                    <span class="sparkBar" style="height: 30%"></span>
+                    <span class="sparkBar" style="height: 40%"></span>
+                    <span class="sparkBar" style="height: 65%"></span>
+                    <span class="sparkBar" style="height: 50%"></span>
+                    <span class="sparkBar" style="height: 30%"></span>
+                    <span class="sparkBar" style="height: 40%"></span>
+                    <span class="sparkBar" style="height: 50%"></span>
+                    <span class="sparkBar" style="height: 30%"></span>
+                    <span class="sparkBar" style="height: 40%"></span>
+                  </div>
+                  <div class="termSparkLabels">
+                    <span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span><span>J</span><span>F</span>
+                  </div>
+                </div>
+              </div>
+              <div class="termDivider"></div>
+              <div class="termStatusBar">
+                <span class="tMauve">NORMAL</span>
+                <span class="tSubtext">Feb 2026</span>
+                <span class="termStatusRight tDim">n/p: accounts  H/L: month  ?: help</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <h2 class="sectionTitle reveal">Everything you need.<br /><span class="accent">Nothing you don't.</span></h2>
+        <div class="featuresGrid">
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x1F512;</div>
+            <h3>Privacy First</h3>
+            <p>All data stays on your machine in a local SQLite database. No cloud sync, no telemetry, no network calls. Ever.</p>
+          </div>
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x2B07;</div>
+            <h3>Smart Import</h3>
+            <p>4-step import wizard auto-detects formats from 11+ major banks. Just drop in your CSV and go.</p>
+          </div>
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x2328;</div>
+            <h3>Keyboard Driven</h3>
+            <p>Vim-inspired modal interface. Navigate, search, and manage everything without ever touching your mouse.</p>
+          </div>
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x1F9EE;</div>
+            <h3>Precise Math</h3>
+            <p>Built with rust_decimal for exact financial arithmetic. No floating-point rounding surprises.</p>
+          </div>
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x1F3F7;</div>
+            <h3>Auto-Categorize</h3>
+            <p>Pattern matching and regex rules automatically sort your transactions. Teach it once, forget forever.</p>
+          </div>
+          <div class="featureCard reveal">
+            <div class="featureIcon">&#x1F4CA;</div>
+            <h3>Budget Tracking</h3>
+            <p>Set monthly spending limits per category with color-coded progress bars. Green, yellow, red &mdash; at a glance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Demo Section -->
+      <section id="demo" class="demo">
+        <h2 class="sectionTitle reveal">See it in action.</h2>
+        <p class="sectionSub reveal">Click the tabs to explore the interface.</p>
+        <div class="demoContainer reveal">
+          <div class="demoTabs" role="tablist">
+            <button id="tabDashboard" class="demoTab active" role="tab" aria-selected="true" aria-controls="demoDashboard" data-tab="demoDashboard">Dashboard</button>
+            <button id="tabTransactions" class="demoTab" role="tab" aria-selected="false" aria-controls="demoTransactions" data-tab="demoTransactions">Transactions</button>
+            <button id="tabImport" class="demoTab" role="tab" aria-selected="false" aria-controls="demoImport" data-tab="demoImport">Import</button>
+            <button id="tabCategories" class="demoTab" role="tab" aria-selected="false" aria-controls="demoCategories" data-tab="demoCategories">Categories</button>
+          </div>
+          <div class="terminal terminalLarge">
+            <div class="terminalBar">
+              <div class="terminalDots">
+                <span class="dot dotRed"></span>
+                <span class="dot dotYellow"></span>
+                <span class="dot dotGreen"></span>
+              </div>
+              <span class="terminalTitle">budgetui</span>
+              <span class="terminalSpacer"></span>
+            </div>
+            <div class="terminalBody">
+              <!-- Dashboard Panel -->
+              <div id="demoDashboard" class="demoPanel active" role="tabpanel" aria-labelledby="tabDashboard">
+                <div class="termTabs">
+                  <span class="termTabActive">Dashboard</span>
+                  <span class="termTabInactive">Transactions</span>
+                  <span class="termTabInactive">Import</span>
+                  <span class="termTabInactive">Categories</span>
+                  <span class="termTabInactive">Budgets</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <div class="termCards">
+                    <div class="termCard termCardBlue">
+                      <div class="termCardLabel">Income</div>
+                      <div class="termCardValue tGreen">+$4,820.00</div>
+                    </div>
+                    <div class="termCard termCardRed">
+                      <div class="termCardLabel">Expenses</div>
+                      <div class="termCardValue tRed">-$3,247.50</div>
+                    </div>
+                    <div class="termCard termCardGreen">
+                      <div class="termCardLabel">Net</div>
+                      <div class="termCardValue tGreen">+$1,572.50</div>
+                    </div>
+                  </div>
+                  <div class="termSection">
+                    <div class="termSectionTitle">Spending by Category</div>
+                    <div class="termBarRow"><span class="termBarLabel">Rent/Mortgage</span><span class="termBar tBgRed" style="width: 100%"></span><span class="termBarValue">$1,450.00</span></div>
+                    <div class="termBarRow"><span class="termBarLabel">Groceries</span><span class="termBar tBgPeach" style="width: 47%"></span><span class="termBarValue">$687.30</span></div>
+                    <div class="termBarRow"><span class="termBarLabel">Dining Out</span><span class="termBar tBgYellow" style="width: 28%"></span><span class="termBarValue">$412.80</span></div>
+                    <div class="termBarRow"><span class="termBarLabel">Utilities</span><span class="termBar tBgGreen" style="width: 20%"></span><span class="termBarValue">$285.40</span></div>
+                    <div class="termBarRow"><span class="termBarLabel">Transport</span><span class="termBar tBgTeal" style="width: 15%"></span><span class="termBarValue">$212.00</span></div>
+                    <div class="termBarRow"><span class="termBarLabel">Shopping</span><span class="termBar tBgMauve" style="width: 14%"></span><span class="termBarValue">$200.00</span></div>
+                  </div>
+                  <div class="termSection">
+                    <div class="termSectionTitle">12-Month Trend</div>
+                    <div class="termSparkline">
+                      <span class="sparkBar" style="height: 20%"></span>
+                      <span class="sparkBar" style="height: 30%"></span>
+                      <span class="sparkBar" style="height: 50%"></span>
+                      <span class="sparkBar" style="height: 30%"></span>
+                      <span class="sparkBar" style="height: 40%"></span>
+                      <span class="sparkBar" style="height: 65%"></span>
+                      <span class="sparkBar" style="height: 50%"></span>
+                      <span class="sparkBar" style="height: 30%"></span>
+                      <span class="sparkBar" style="height: 40%"></span>
+                      <span class="sparkBar" style="height: 50%"></span>
+                      <span class="sparkBar" style="height: 30%"></span>
+                      <span class="sparkBar" style="height: 40%"></span>
+                    </div>
+                    <div class="termSparkLabels">
+                      <span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span><span>J</span><span>F</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="tMauve">NORMAL</span>
+                  <span class="tSubtext">Feb 2026</span>
+                  <span class="tSubtext">Checking **4521</span>
+                  <span class="termStatusRight tDim">n/p: accounts  H/L: month  ?: help</span>
+                </div>
+              </div>
+              <!-- Transactions Panel -->
+              <div id="demoTransactions" class="demoPanel" role="tabpanel" aria-labelledby="tabTransactions">
+                <div class="termTabs">
+                  <span class="termTabInactive">Dashboard</span>
+                  <span class="termTabActive">Transactions</span>
+                  <span class="termTabInactive">Import</span>
+                  <span class="termTabInactive">Categories</span>
+                  <span class="termTabInactive">Budgets</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <table class="termTable">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th class="alignRight">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>2026-02-18</td><td>WHOLE FOODS MARKET #10847</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$127.43</td></tr>
+                      <tr><td>2026-02-17</td><td>NETFLIX.COM</td><td class="tMauve">Entertainment</td><td class="alignRight tRed">-$22.99</td></tr>
+                      <tr class="termTableAlt"><td>2026-02-16</td><td>SHELL OIL 57442</td><td class="tTeal">Transport</td><td class="alignRight tRed">-$48.20</td></tr>
+                      <tr><td>2026-02-15</td><td>EMPLOYER DIRECT DEPOSIT</td><td class="tBlue">Income</td><td class="alignRight tGreen">+$2,410.00</td></tr>
+                      <tr><td>2026-02-14</td><td>CHIPOTLE ONLINE 3291</td><td class="tYellow">Dining Out</td><td class="alignRight tRed">-$16.85</td></tr>
+                      <tr class="termTableAlt"><td>2026-02-13</td><td>VERIZON WIRELESS</td><td class="tPeach">Utilities</td><td class="alignRight tRed">-$89.00</td></tr>
+                      <tr><td>2026-02-12</td><td>AMAZON.COM*2K84R</td><td class="tMauve">Shopping</td><td class="alignRight tRed">-$34.99</td></tr>
+                      <tr><td>2026-02-11</td><td>TRADER JOE'S #219</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$67.82</td></tr>
+                      <tr class="termTableAlt"><td>2026-02-10</td><td>STARBUCKS STORE 12883</td><td class="tYellow">Dining Out</td><td class="alignRight tRed">-$6.45</td></tr>
+                      <tr><td>2026-02-09</td><td>PROPERTY MGMT AUTOPAY</td><td class="tRed">Rent/Mortgage</td><td class="alignRight tRed">-$1,450.00</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="termTableFooter tDim">Showing 10 of 47 transactions</div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="tYellow">SEARCH</span>
+                  <span class="tSubtext">Feb 2026</span>
+                  <span class="tSubtext">All Accounts</span>
+                  <span class="termStatusRight tDim">j/k: move  /: search  D: delete  e: edit</span>
+                </div>
+                <div class="termSearchBar">
+                  <span class="tDim">/</span><span class="tText">grocer</span><span class="termCursor">|</span>
+                  <span class="termSearchCount tYellow">2 matches</span>
+                </div>
+              </div>
+              <!-- Import Panel -->
+              <div id="demoImport" class="demoPanel" role="tabpanel" aria-labelledby="tabImport">
+                <div class="termTabs">
+                  <span class="termTabInactive">Dashboard</span>
+                  <span class="termTabInactive">Transactions</span>
+                  <span class="termTabActive">Import</span>
+                  <span class="termTabInactive">Categories</span>
+                  <span class="termTabInactive">Budgets</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <div class="termImportTitle tBlue">Import CSV &mdash; Step 2 of 4: Column Mapping</div>
+                  <div class="termImportDetect tGreen">&#x2714; Bank detected: Chase Credit Card</div>
+                  <div class="termImportField">
+                    <span class="tSubtext">File:</span>
+                    <span class="tText">~/Downloads/chase-statement-feb-2026.csv</span>
+                  </div>
+                  <div class="termSection">
+                    <div class="termSectionTitle">Column Mapping</div>
+                    <div class="termMappingRow"><span class="tText">Transaction Date</span><span class="tDim">&rarr;</span><span class="tBlue">Date</span></div>
+                    <div class="termMappingRow"><span class="tText">Description</span><span class="tDim">&rarr;</span><span class="tBlue">Description</span></div>
+                    <div class="termMappingRow"><span class="tText">Amount</span><span class="tDim">&rarr;</span><span class="tBlue">Amount</span></div>
+                    <div class="termMappingRow"><span class="tText">Post Date</span><span class="tDim">&rarr;</span><span class="tDim">Skipped</span></div>
+                    <div class="termMappingRow"><span class="tText">Category</span><span class="tDim">&rarr;</span><span class="tDim">Skipped</span></div>
+                  </div>
+                  <div class="termSection">
+                    <div class="termSectionTitle">Preview (first 3 rows)</div>
+                    <div class="termPreviewRow"><span>2026-02-18</span><span>WHOLE FOODS MARKET #10847</span><span class="tRed">-$127.43</span></div>
+                    <div class="termPreviewRow"><span>2026-02-17</span><span>NETFLIX.COM</span><span class="tRed">-$22.99</span></div>
+                    <div class="termPreviewRow"><span>2026-02-16</span><span>SHELL OIL 57442</span><span class="tRed">-$48.20</span></div>
+                  </div>
+                  <div class="termImportStats">
+                    <span class="tGreen">34 transactions found</span>
+                    <span class="tDim">|</span>
+                    <span class="tYellow">2 potential duplicates</span>
+                  </div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="tMauve">NORMAL</span>
+                  <span class="tSubtext">Step 2/4</span>
+                  <span class="termStatusRight tDim">+/-: adjust  Enter: next  Esc: back</span>
+                </div>
+              </div>
+              <!-- Categories Panel -->
+              <div id="demoCategories" class="demoPanel" role="tabpanel" aria-labelledby="tabCategories">
+                <div class="termTabs">
+                  <span class="termTabInactive">Dashboard</span>
+                  <span class="termTabInactive">Transactions</span>
+                  <span class="termTabInactive">Import</span>
+                  <span class="termTabActive">Categories</span>
+                  <span class="termTabInactive">Budgets</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <div class="termSplitPanels">
+                    <div class="termPanel termPanelActive">
+                      <div class="termPanelTitle tBlue">Categories</div>
+                      <div class="termTree">
+                        <div class="termTreeItem">&#x25BC; <span class="tText">Housing</span></div>
+                        <div class="termTreeChild tSubtext">Rent/Mortgage</div>
+                        <div class="termTreeChild tSubtext">Utilities</div>
+                        <div class="termTreeChild tSubtext">Insurance</div>
+                        <div class="termTreeItem">&#x25BC; <span class="tText">Food</span></div>
+                        <div class="termTreeChild termTreeSelected tGreen">&#x25B8; Groceries</div>
+                        <div class="termTreeChild tSubtext">Dining Out</div>
+                        <div class="termTreeChild tSubtext">Coffee</div>
+                        <div class="termTreeItem">&#x25B8; <span class="tText">Transport</span></div>
+                        <div class="termTreeItem">&#x25B8; <span class="tText">Shopping</span></div>
+                        <div class="termTreeItem">&#x25B8; <span class="tText">Entertainment</span></div>
+                      </div>
+                    </div>
+                    <div class="termPanel">
+                      <div class="termPanelTitle tDim">Rules</div>
+                      <div class="termRulesFor"><span class="tSubtext">Rules for:</span> <span class="tGreen">Groceries</span></div>
+                      <div class="termRuleRow"><span class="tText">whole foods</span><span class="tDim">pattern</span></div>
+                      <div class="termRuleRow"><span class="tText">trader joe</span><span class="tDim">pattern</span></div>
+                      <div class="termRuleRow"><span class="tText">kroger</span><span class="tDim">pattern</span></div>
+                      <div class="termRuleRow"><span class="tText">aldi</span><span class="tDim">pattern</span></div>
+                      <div class="termRuleRow"><span class="tYellow">.*market.*</span><span class="tYellow">regex</span></div>
+                      <div class="termRuleCount tDim">5 rules</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="tMauve">NORMAL</span>
+                  <span class="tSubtext">Feb 2026</span>
+                  <span class="termStatusRight tDim">j/k: move  r: rules panel  :rule to add</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Banks Section -->
+      <section id="banks" class="banks">
+        <h2 class="sectionTitle reveal">Works with your bank.</h2>
+        <p class="sectionSub reveal">Auto-detects CSV formats from 11+ major banks. Manual mapping for everything else.</p>
+        <div class="bankGrid reveal">
+          <div class="bankBadge">Wells Fargo</div>
+          <div class="bankBadge">Chase</div>
+          <div class="bankBadge">American Express</div>
+          <div class="bankBadge">Bank of America</div>
+          <div class="bankBadge">Capital One</div>
+          <div class="bankBadge">Citi</div>
+          <div class="bankBadge">USAA</div>
+          <div class="bankBadge">Discover</div>
+          <div class="bankBadge bankBadgeMore">& more</div>
+        </div>
+        <div class="formatBadges reveal">
+          <span class="formatBadge">CSV</span>
+          <span class="formatBadge">TSV</span>
+          <span class="formatBadge">OFX</span>
+          <span class="formatBadge">QFX</span>
+          <span class="formatBadge">QIF</span>
+        </div>
+      </section>
+
+      <!-- Why Section -->
+      <section id="why" class="why">
+        <h2 class="sectionTitle reveal">Built different.</h2>
+        <div class="whyGrid">
+          <div class="whyCard reveal">
+            <div class="whyIcon">&#x1F980;</div>
+            <h3>Built with Rust</h3>
+            <p>Compiles to a single binary. Starts instantly. Handles thousands of transactions without breaking a sweat.</p>
+          </div>
+          <div class="whyCard reveal">
+            <div class="whyIcon">&#x1F4BE;</div>
+            <h3>Local SQLite</h3>
+            <p>Your data is a single file on your machine. Back it up, move it, version control it &mdash; you're in complete control.</p>
+          </div>
+          <div class="whyCard reveal">
+            <div class="whyIcon">&#x1F513;</div>
+            <h3>MIT Licensed</h3>
+            <p>Free and open source forever. Read every line of code, fork it, make it yours. No strings attached.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Install Section -->
+      <section id="install" class="install">
+        <h2 class="sectionTitle reveal">Get started in seconds.</h2>
+        <div class="installGrid">
+          <div class="installBlock reveal">
+            <h3>Install from source</h3>
+            <div class="codeBlock">
+              <button class="copyBtn" data-copy="git clone https://github.com/ShaneMarusczak/budgetui.git
+cd budgetui
+cargo install --path ." aria-label="Copy to clipboard">Copy</button>
+<pre class="codePre"><span class="tDim">$</span> git clone https://github.com/ShaneMarusczak/budgetui.git
+<span class="tDim">$</span> cd budgetui
+<span class="tDim">$</span> cargo install --path .</pre>
+            </div>
+            <p class="installNote">Requires the <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noreferrer">Rust toolchain</a>.</p>
+          </div>
+          <div class="installBlock reveal">
+            <h3>Launch the TUI</h3>
+            <div class="codeBlock">
+              <button class="copyBtn" data-copy="budgetui" aria-label="Copy to clipboard">Copy</button>
+<pre class="codePre"><span class="tDim">$</span> budgetui</pre>
+            </div>
+          </div>
+          <div class="installBlock reveal">
+            <h3>Or use the CLI</h3>
+            <div class="codeBlock">
+              <button class="copyBtn" data-copy="budgetui import statement.csv
+budgetui export --month 2026-02
+budgetui summary" aria-label="Copy to clipboard">Copy</button>
+<pre class="codePre"><span class="tDim">$</span> budgetui import statement.csv
+<span class="tDim">$</span> budgetui export --month 2026-02
+<span class="tDim">$</span> budgetui summary</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Keybindings Section -->
+      <section id="keys" class="keys">
+        <h2 class="sectionTitle reveal">Keyboard-first design.</h2>
+        <p class="sectionSub reveal">Vim-inspired keybindings that stay out of your way.</p>
+        <div class="keysGrid">
+          <div class="keysColumn reveal">
+            <h3>Navigation</h3>
+            <div class="keyRow"><kbd>j</kbd> / <kbd>k</kbd><span>Move down / up</span></div>
+            <div class="keyRow"><kbd>g</kbd> / <kbd>G</kbd><span>Jump to top / bottom</span></div>
+            <div class="keyRow"><kbd>Ctrl-d</kbd> / <kbd>Ctrl-u</kbd><span>Page down / up</span></div>
+            <div class="keyRow"><kbd>H</kbd> / <kbd>L</kbd><span>Previous / next month</span></div>
+            <div class="keyRow"><kbd>Tab</kbd><span>Cycle screens</span></div>
+            <div class="keyRow"><kbd>1</kbd>-<kbd>5</kbd><span>Jump to screen</span></div>
+          </div>
+          <div class="keysColumn reveal">
+            <h3>Commands</h3>
+            <div class="keyRow"><kbd>:</kbd><span>Enter command mode</span></div>
+            <div class="keyRow"><kbd>/</kbd><span>Search transactions</span></div>
+            <div class="keyRow"><kbd>?</kbd><span>Show help</span></div>
+            <div class="keyRow"><kbd>e</kbd><span>Edit selected item</span></div>
+            <div class="keyRow"><kbd>D</kbd><span>Delete selected item</span></div>
+            <div class="keyRow"><kbd>Ctrl-q</kbd><span>Quit</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footerInner">
+        <div class="footerBrand">
+          <span class="navLogo"><span class="prompt">$</span> budgetui</span>
+          <p class="footerTagline">Your finances. Your terminal. Your rules.</p>
+        </div>
+        <div class="footerLinks">
+          <a href="https://github.com/ShaneMarusczak/budgetui" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/ShaneMarusczak/budgetui/blob/main/LICENSE" target="_blank" rel="noreferrer">MIT License</a>
+          <a href="https://github.com/ShaneMarusczak/budgetui/issues" target="_blank" rel="noreferrer">Issues</a>
+        </div>
+        <p class="footerBuilt">Built with <span class="tPeach">Rust</span> + <span class="tBlue">Ratatui</span></p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
