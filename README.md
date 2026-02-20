@@ -2,7 +2,7 @@
 
 Landing page for [BudgeTUI](https://github.com/ShaneMarusczak/budgetui) — a privacy-first terminal finance tracker built with Rust.
 
-**Live site:** [shanemarusczak.github.io/budgetui_web](https://shanemarusczak.github.io/budgetui_web/)
+**Live site:** [marusczak.com/budgetui_web](https://marusczak.com/budgetui_web/)
 
 ## Stack
 
