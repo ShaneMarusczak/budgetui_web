@@ -119,8 +119,7 @@
     let prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!prefersReducedMotion) {
-      // Collect all child elements to animate in sequence
-      let elements = heroTerminal.querySelectorAll(".termCards .termCard, .termBarRow, .termSection > .termSectionTitle, .termSparkline, .termSparkLabels");
+      let elements = heroTerminal.querySelectorAll(".termCards .termCard, .termNetWorth, .termBarRow, .termSection > .termSectionTitle, .termSparkline, .termSparkLabels");
       elements.forEach((el) => {
         el.style.opacity = "0";
         el.style.transform = "translateY(8px)";

@@ -17,12 +17,14 @@
   --ctp-text: #cdd6f4;
   --ctp-lavender: #b4befe;
   --ctp-blue: #89b4fa;
+  --ctp-sapphire: #74c7ec;
   --ctp-teal: #94e2d5;
   --ctp-green: #a6e3a1;
   --ctp-yellow: #f9e2af;
   --ctp-peach: #fab387;
   --ctp-red: #f38ba8;
   --ctp-mauve: #cba6f7;
+  --ctp-pink: #f5c2e7;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
@@ -360,21 +362,25 @@ a:hover {
 .tBgBlue { background-color: var(--ctp-blue); }
 
 /* --- Terminal UI Components --- */
-.termTabs {
+
+/* Hint bar (replaces old tab bar) */
+.termHintBar {
   display: flex;
-  gap: 16px;
-  padding: 0 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  background-color: var(--ctp-mantle);
+  border-radius: 2px;
 }
 
-.termTabActive {
-  color: var(--ctp-blue);
+.termHintScreen {
   font-weight: 700;
 }
 
-.termTabInactive {
-  color: var(--ctp-overlay0);
+.termHintNav {
+  font-size: 0.7rem;
 }
 
 .termDivider {
@@ -387,10 +393,17 @@ a:hover {
   padding: 8px 4px;
 }
 
+/* Card rows (debit + credit) */
+.termCardRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
 .termCards {
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
 }
 
 .termCard {
@@ -407,7 +420,7 @@ a:hover {
 .termCardGreen { border-color: var(--ctp-green); }
 
 .termCardLabel {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--ctp-subtext0);
   margin-bottom: 4px;
 }
@@ -417,6 +430,25 @@ a:hover {
   font-weight: 700;
 }
 
+/* Net Worth row */
+.termNetWorth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.termNetWorthValue {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Spending bars */
 .termSection {
   margin-bottom: 16px;
 }
@@ -457,6 +489,7 @@ a:hover {
   margin-left: auto;
 }
 
+/* Sparkline */
 .termSparkline {
   display: flex;
   align-items: flex-end;
@@ -487,6 +520,7 @@ a:hover {
   min-width: 8px;
 }
 
+/* Status bar */
 .termStatusBar {
   display: flex;
   align-items: center;
@@ -496,8 +530,150 @@ a:hover {
   padding: 4px;
 }
 
+.termStatusMode {
+  background-color: var(--ctp-blue);
+  color: var(--ctp-crust);
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+}
+
+.termStatusSearch {
+  background-color: var(--ctp-yellow);
+}
+
 .termStatusRight {
   margin-left: auto;
+}
+
+/* --- Account Cards --- */
+.termAccountCards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.termAccountCard {
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.termAccountSelected {
+  border-color: var(--ctp-blue);
+  background-color: rgba(137, 180, 250, 0.05);
+}
+
+.termAccountHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.termAccountName {
+  font-weight: 600;
+}
+
+.termAccountStats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 4px;
+}
+
+.termAccountBalance {
+  font-size: 0.8rem;
+}
+
+/* --- Budget Progress Bars --- */
+.termBudgetList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.termBudgetRow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.termBudgetHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.termProgressBar {
+  height: 8px;
+  background-color: var(--ctp-surface0);
+  border-radius: 4px;
+  overflow: hidden;
+  display: inline-block;
+  width: calc(100% - 50px);
+  vertical-align: middle;
+}
+
+.termProgressFill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.termProgressGreen {
+  background-color: var(--ctp-green);
+}
+
+.termProgressYellow {
+  background-color: var(--ctp-yellow);
+}
+
+.termProgressRed {
+  background-color: var(--ctp-red);
+}
+
+.termBudgetPct {
+  display: inline-block;
+  width: 40px;
+  text-align: right;
+  vertical-align: middle;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+/* --- Import Step Indicator --- */
+.termImportSteps {
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  margin-bottom: 12px;
+}
+
+.termImportStepActive {
+  background-color: var(--ctp-blue);
+  color: var(--ctp-crust);
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+/* Import account list */
+.termAccountList {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.termAccountListItem {
+  padding: 5px 8px;
+  color: var(--ctp-text);
+}
+
+.termAccountListSelected {
+  background-color: rgba(137, 180, 250, 0.15);
+  border-radius: 2px;
+  color: var(--ctp-blue);
+  font-weight: 600;
 }
 
 /* Terminal Table */
@@ -578,28 +754,6 @@ a:hover {
   gap: 8px;
 }
 
-.termMappingRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 3px 0;
-}
-
-.termMappingRow span:first-child {
-  width: 140px;
-}
-
-.termPreviewRow {
-  display: flex;
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--ctp-text);
-  padding: 2px 0;
-}
-
 .termImportStats {
   display: flex;
   gap: 12px;
@@ -633,25 +787,19 @@ a:hover {
   margin-bottom: 10px;
 }
 
-.termTree {
+/* Flat category list */
+.termCategoryList {
   font-family: var(--font-mono);
   font-size: 0.75rem;
 }
 
-.termTreeItem {
-  padding: 2px 0;
-  color: var(--ctp-overlay0);
+.termCategoryItem {
+  padding: 3px 8px;
 }
 
-.termTreeChild {
-  padding: 2px 0 2px 20px;
-}
-
-.termTreeSelected {
+.termCategorySelected {
   background-color: rgba(137, 180, 250, 0.1);
   border-radius: 2px;
-  padding-left: 18px;
-  margin-left: 2px;
 }
 
 .termRulesFor {
@@ -811,7 +959,6 @@ a:hover {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 32px;
 }
 
 .bankBadge {
@@ -835,24 +982,6 @@ a:hover {
   color: var(--ctp-blue);
   font-style: italic;
   border-style: dashed;
-}
-
-.formatBadges {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.formatBadge {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 16px;
-  background-color: rgba(137, 180, 250, 0.1);
-  color: var(--ctp-blue);
-  border-radius: 20px;
-  border: 1px solid rgba(137, 180, 250, 0.2);
 }
 
 /* --- Why Section --- */
@@ -1197,7 +1326,7 @@ kbd {
 
   .demoTab {
     font-size: 0.75rem;
-    padding: 8px 14px;
+    padding: 8px 12px;
   }
 
   .featureCard {
@@ -1258,6 +1387,11 @@ kbd {
   .termTable td {
     padding: 3px 4px;
   }
+
+  .termAccountStats {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1276,9 +1410,12 @@ kbd {
     justify-content: center;
   }
 
-  .termTabs {
-    gap: 8px;
+  .termHintBar {
     font-size: 0.65rem;
+  }
+
+  .termHintNav {
+    font-size: 0.6rem;
   }
 
   .termCardValue {

@@ -60,28 +60,45 @@
               <span class="terminalSpacer"></span>
             </div>
             <div class="terminalBody">
-              <div class="termTabs">
-                <span class="termTabActive">Dashboard</span>
-                <span class="termTabInactive">Transactions</span>
-                <span class="termTabInactive">Import</span>
-                <span class="termTabInactive">Categories</span>
-                <span class="termTabInactive">Budgets</span>
+              <div class="termHintBar">
+                <span class="termHintScreen tBlue">Dashboard</span>
+                <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
               </div>
               <div class="termDivider"></div>
               <div id="heroTerminalContent" class="termContent">
-                <div class="termCards">
-                  <div class="termCard termCardBlue">
-                    <div class="termCardLabel">Income</div>
-                    <div class="termCardValue tGreen">+$4,820.00</div>
+                <div class="termCardRow">
+                  <div class="termCards">
+                    <div class="termCard termCardGreen">
+                      <div class="termCardLabel">Debit: Income</div>
+                      <div class="termCardValue tGreen">$4,820.00</div>
+                    </div>
+                    <div class="termCard termCardRed">
+                      <div class="termCardLabel">Debit: Expenses</div>
+                      <div class="termCardValue tRed">$3,247.50</div>
+                    </div>
+                    <div class="termCard termCardGreen">
+                      <div class="termCardLabel">Debit: Net</div>
+                      <div class="termCardValue tGreen">$1,572.50</div>
+                    </div>
                   </div>
-                  <div class="termCard termCardRed">
-                    <div class="termCardLabel">Expenses</div>
-                    <div class="termCardValue tRed">-$3,247.50</div>
+                  <div class="termCards">
+                    <div class="termCard termCardRed">
+                      <div class="termCardLabel">Credit: Charges</div>
+                      <div class="termCardValue tRed">$812.30</div>
+                    </div>
+                    <div class="termCard termCardGreen">
+                      <div class="termCardLabel">Credit: Payments</div>
+                      <div class="termCardValue tGreen">$500.00</div>
+                    </div>
+                    <div class="termCard termCardRed">
+                      <div class="termCardLabel">Credit: Balance</div>
+                      <div class="termCardValue tRed">-$312.30</div>
+                    </div>
                   </div>
-                  <div class="termCard termCardGreen">
-                    <div class="termCardLabel">Net</div>
-                    <div class="termCardValue tGreen">+$1,572.50</div>
-                  </div>
+                </div>
+                <div class="termNetWorth">
+                  <span class="tDim">Net Worth</span>
+                  <span class="tGreen termNetWorthValue">$24,817.20</span>
                 </div>
                 <div class="termSection">
                   <div class="termSectionTitle">Spending by Category</div>
@@ -93,7 +110,7 @@
                   <div class="termBarRow"><span class="termBarLabel">Shopping</span><span class="termBar tBgMauve" style="width: 14%"></span><span class="termBarValue">$200.00</span></div>
                 </div>
                 <div class="termSection">
-                  <div class="termSectionTitle">12-Month Trend</div>
+                  <div class="termSectionTitle">Monthly Spending Trend</div>
                   <div class="termSparkline">
                     <span class="sparkBar" style="height: 20%"></span>
                     <span class="sparkBar" style="height: 30%"></span>
@@ -115,9 +132,9 @@
               </div>
               <div class="termDivider"></div>
               <div class="termStatusBar">
-                <span class="tMauve">NORMAL</span>
-                <span class="tSubtext">Feb 2026</span>
-                <span class="termStatusRight tDim">n/p: accounts  H/L: month  ?: help</span>
+                <span class="termStatusMode">NORMAL</span>
+                <span class="tSubtext">Dashboard | Feb 2026 | 47 txns</span>
+                <span class="termStatusRight tDim">H/L month | n/p account | ? help</span>
               </div>
             </div>
           </div>
@@ -136,7 +153,7 @@
           <div class="featureCard reveal">
             <div class="featureIcon">&#x2B07;</div>
             <h3>Smart Import</h3>
-            <p>4-step import wizard auto-detects formats from 11+ major banks. Just drop in your CSV and go.</p>
+            <p>6-step import wizard with account selection auto-detects formats from 11+ major banks. Just drop in your CSV and go.</p>
           </div>
           <div class="featureCard reveal">
             <div class="featureIcon">&#x2328;</div>
@@ -168,9 +185,11 @@
         <div class="demoContainer reveal">
           <div class="demoTabs" role="tablist">
             <button id="tabDashboard" class="demoTab active" role="tab" aria-selected="true" aria-controls="demoDashboard" data-tab="demoDashboard">Dashboard</button>
+            <button id="tabAccounts" class="demoTab" role="tab" aria-selected="false" aria-controls="demoAccounts" data-tab="demoAccounts">Accounts</button>
             <button id="tabTransactions" class="demoTab" role="tab" aria-selected="false" aria-controls="demoTransactions" data-tab="demoTransactions">Transactions</button>
             <button id="tabImport" class="demoTab" role="tab" aria-selected="false" aria-controls="demoImport" data-tab="demoImport">Import</button>
             <button id="tabCategories" class="demoTab" role="tab" aria-selected="false" aria-controls="demoCategories" data-tab="demoCategories">Categories</button>
+            <button id="tabBudgets" class="demoTab" role="tab" aria-selected="false" aria-controls="demoBudgets" data-tab="demoBudgets">Budgets</button>
           </div>
           <div class="terminal terminalLarge">
             <div class="terminalBar">
@@ -185,28 +204,45 @@
             <div class="terminalBody">
               <!-- Dashboard Panel -->
               <div id="demoDashboard" class="demoPanel active" role="tabpanel" aria-labelledby="tabDashboard">
-                <div class="termTabs">
-                  <span class="termTabActive">Dashboard</span>
-                  <span class="termTabInactive">Transactions</span>
-                  <span class="termTabInactive">Import</span>
-                  <span class="termTabInactive">Categories</span>
-                  <span class="termTabInactive">Budgets</span>
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Dashboard</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
                 </div>
                 <div class="termDivider"></div>
                 <div class="termContent">
-                  <div class="termCards">
-                    <div class="termCard termCardBlue">
-                      <div class="termCardLabel">Income</div>
-                      <div class="termCardValue tGreen">+$4,820.00</div>
+                  <div class="termCardRow">
+                    <div class="termCards">
+                      <div class="termCard termCardGreen">
+                        <div class="termCardLabel">Debit: Income</div>
+                        <div class="termCardValue tGreen">$4,820.00</div>
+                      </div>
+                      <div class="termCard termCardRed">
+                        <div class="termCardLabel">Debit: Expenses</div>
+                        <div class="termCardValue tRed">$3,247.50</div>
+                      </div>
+                      <div class="termCard termCardGreen">
+                        <div class="termCardLabel">Debit: Net</div>
+                        <div class="termCardValue tGreen">$1,572.50</div>
+                      </div>
                     </div>
-                    <div class="termCard termCardRed">
-                      <div class="termCardLabel">Expenses</div>
-                      <div class="termCardValue tRed">-$3,247.50</div>
+                    <div class="termCards">
+                      <div class="termCard termCardRed">
+                        <div class="termCardLabel">Credit: Charges</div>
+                        <div class="termCardValue tRed">$812.30</div>
+                      </div>
+                      <div class="termCard termCardGreen">
+                        <div class="termCardLabel">Credit: Payments</div>
+                        <div class="termCardValue tGreen">$500.00</div>
+                      </div>
+                      <div class="termCard termCardRed">
+                        <div class="termCardLabel">Credit: Balance</div>
+                        <div class="termCardValue tRed">-$312.30</div>
+                      </div>
                     </div>
-                    <div class="termCard termCardGreen">
-                      <div class="termCardLabel">Net</div>
-                      <div class="termCardValue tGreen">+$1,572.50</div>
-                    </div>
+                  </div>
+                  <div class="termNetWorth">
+                    <span class="tDim">Net Worth</span>
+                    <span class="tGreen termNetWorthValue">$24,817.20</span>
                   </div>
                   <div class="termSection">
                     <div class="termSectionTitle">Spending by Category</div>
@@ -218,7 +254,7 @@
                     <div class="termBarRow"><span class="termBarLabel">Shopping</span><span class="termBar tBgMauve" style="width: 14%"></span><span class="termBarValue">$200.00</span></div>
                   </div>
                   <div class="termSection">
-                    <div class="termSectionTitle">12-Month Trend</div>
+                    <div class="termSectionTitle">Monthly Spending Trend</div>
                     <div class="termSparkline">
                       <span class="sparkBar" style="height: 20%"></span>
                       <span class="sparkBar" style="height: 30%"></span>
@@ -240,20 +276,73 @@
                 </div>
                 <div class="termDivider"></div>
                 <div class="termStatusBar">
-                  <span class="tMauve">NORMAL</span>
-                  <span class="tSubtext">Feb 2026</span>
-                  <span class="tSubtext">Checking **4521</span>
-                  <span class="termStatusRight tDim">n/p: accounts  H/L: month  ?: help</span>
+                  <span class="termStatusMode">NORMAL</span>
+                  <span class="tSubtext">Dashboard | Feb 2026 | 47 txns</span>
+                  <span class="termStatusRight tDim">H/L month | n/p account | ? help</span>
+                </div>
+              </div>
+              <!-- Accounts Panel -->
+              <div id="demoAccounts" class="demoPanel" role="tabpanel" aria-labelledby="tabAccounts">
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Accounts</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <div class="termAccountCards">
+                    <div class="termAccountCard termAccountSelected">
+                      <div class="termAccountHeader">
+                        <span class="tBlue termAccountName">Chase Checking</span>
+                        <span class="tDim">Checking</span>
+                      </div>
+                      <div class="termAccountStats">
+                        <span><span class="tDim">Income:</span> <span class="tGreen">$4,820.00</span></span>
+                        <span><span class="tDim">Expenses:</span> <span class="tRed">$2,435.20</span></span>
+                      </div>
+                      <div class="termAccountBalance">
+                        <span class="tDim">Balance:</span> <span class="tGreen">$12,384.80</span>
+                      </div>
+                    </div>
+                    <div class="termAccountCard">
+                      <div class="termAccountHeader">
+                        <span class="tText termAccountName">Wells Fargo Savings</span>
+                        <span class="tDim">Savings</span>
+                      </div>
+                      <div class="termAccountStats">
+                        <span><span class="tDim">Income:</span> <span class="tGreen">$0.00</span></span>
+                        <span><span class="tDim">Expenses:</span> <span class="tRed">$0.00</span></span>
+                      </div>
+                      <div class="termAccountBalance">
+                        <span class="tDim">Balance:</span> <span class="tGreen">$15,200.00</span>
+                      </div>
+                    </div>
+                    <div class="termAccountCard">
+                      <div class="termAccountHeader">
+                        <span class="tText termAccountName">Chase Sapphire CC</span>
+                        <span class="tDim">Credit Card</span>
+                      </div>
+                      <div class="termAccountStats">
+                        <span><span class="tDim">Charges:</span> <span class="tRed">$812.30</span></span>
+                        <span><span class="tDim">Payments:</span> <span class="tGreen">$500.00</span></span>
+                      </div>
+                      <div class="termAccountBalance">
+                        <span class="tDim">Balance:</span> <span class="tRed">-$2,767.60</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="termStatusMode">NORMAL</span>
+                  <span class="tSubtext">Accounts | Feb 2026 | 47 txns</span>
+                  <span class="termStatusRight tDim">j/k navigate | Enter view txns | ? help</span>
                 </div>
               </div>
               <!-- Transactions Panel -->
               <div id="demoTransactions" class="demoPanel" role="tabpanel" aria-labelledby="tabTransactions">
-                <div class="termTabs">
-                  <span class="termTabInactive">Dashboard</span>
-                  <span class="termTabActive">Transactions</span>
-                  <span class="termTabInactive">Import</span>
-                  <span class="termTabInactive">Categories</span>
-                  <span class="termTabInactive">Budgets</span>
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Transactions</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
                 </div>
                 <div class="termDivider"></div>
                 <div class="termContent">
@@ -262,31 +351,29 @@
                       <tr>
                         <th>Date</th>
                         <th>Description</th>
+                        <th>Account</th>
                         <th>Category</th>
                         <th class="alignRight">Amount</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr><td>2026-02-18</td><td>WHOLE FOODS MARKET #10847</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$127.43</td></tr>
-                      <tr><td>2026-02-17</td><td>NETFLIX.COM</td><td class="tMauve">Entertainment</td><td class="alignRight tRed">-$22.99</td></tr>
-                      <tr class="termTableAlt"><td>2026-02-16</td><td>SHELL OIL 57442</td><td class="tTeal">Transport</td><td class="alignRight tRed">-$48.20</td></tr>
-                      <tr><td>2026-02-15</td><td>EMPLOYER DIRECT DEPOSIT</td><td class="tBlue">Income</td><td class="alignRight tGreen">+$2,410.00</td></tr>
-                      <tr><td>2026-02-14</td><td>CHIPOTLE ONLINE 3291</td><td class="tYellow">Dining Out</td><td class="alignRight tRed">-$16.85</td></tr>
-                      <tr class="termTableAlt"><td>2026-02-13</td><td>VERIZON WIRELESS</td><td class="tPeach">Utilities</td><td class="alignRight tRed">-$89.00</td></tr>
-                      <tr><td>2026-02-12</td><td>AMAZON.COM*2K84R</td><td class="tMauve">Shopping</td><td class="alignRight tRed">-$34.99</td></tr>
-                      <tr><td>2026-02-11</td><td>TRADER JOE'S #219</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$67.82</td></tr>
-                      <tr class="termTableAlt"><td>2026-02-10</td><td>STARBUCKS STORE 12883</td><td class="tYellow">Dining Out</td><td class="alignRight tRed">-$6.45</td></tr>
-                      <tr><td>2026-02-09</td><td>PROPERTY MGMT AUTOPAY</td><td class="tRed">Rent/Mortgage</td><td class="alignRight tRed">-$1,450.00</td></tr>
+                      <tr><td>2026-02-18</td><td>WHOLE FOODS MARKET #10847</td><td class="tDim">Chase Checking</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$127.43</td></tr>
+                      <tr><td>2026-02-17</td><td>NETFLIX.COM</td><td class="tDim">Chase Sapphire</td><td class="tMauve">Entertainment</td><td class="alignRight tRed">-$22.99</td></tr>
+                      <tr class="termTableAlt"><td>2026-02-16</td><td>SHELL OIL 57442</td><td class="tDim">Chase Checking</td><td class="tTeal">Transport</td><td class="alignRight tRed">-$48.20</td></tr>
+                      <tr><td>2026-02-15</td><td>EMPLOYER DIRECT DEPOSIT</td><td class="tDim">Chase Checking</td><td class="tBlue">Income</td><td class="alignRight tGreen">+$2,410.00</td></tr>
+                      <tr><td>2026-02-14</td><td>CHIPOTLE ONLINE 3291</td><td class="tDim">Chase Sapphire</td><td class="tYellow">Dining Out</td><td class="alignRight tRed">-$16.85</td></tr>
+                      <tr class="termTableAlt"><td>2026-02-13</td><td>VERIZON WIRELESS</td><td class="tDim">Chase Checking</td><td class="tPeach">Utilities</td><td class="alignRight tRed">-$89.00</td></tr>
+                      <tr><td>2026-02-12</td><td>AMAZON.COM*2K84R</td><td class="tDim">Chase Sapphire</td><td class="tMauve">Shopping</td><td class="alignRight tRed">-$34.99</td></tr>
+                      <tr><td>2026-02-11</td><td>TRADER JOE'S #219</td><td class="tDim">Chase Checking</td><td class="tGreen">Groceries</td><td class="alignRight tRed">-$67.82</td></tr>
                     </tbody>
                   </table>
-                  <div class="termTableFooter tDim">Showing 10 of 47 transactions</div>
+                  <div class="termTableFooter tDim">Showing 8 of 47 transactions</div>
                 </div>
                 <div class="termDivider"></div>
                 <div class="termStatusBar">
-                  <span class="tYellow">SEARCH</span>
-                  <span class="tSubtext">Feb 2026</span>
-                  <span class="tSubtext">All Accounts</span>
-                  <span class="termStatusRight tDim">j/k: move  /: search  D: delete  e: edit</span>
+                  <span class="termStatusMode termStatusSearch">SEARCH</span>
+                  <span class="tSubtext">Transactions | Feb 2026 | 47 txns</span>
+                  <span class="termStatusRight tDim">D delete | /search | :recat | ? help</span>
                 </div>
                 <div class="termSearchBar">
                   <span class="tDim">/</span><span class="tText">grocer</span><span class="termCursor">|</span>
@@ -295,34 +382,34 @@
               </div>
               <!-- Import Panel -->
               <div id="demoImport" class="demoPanel" role="tabpanel" aria-labelledby="tabImport">
-                <div class="termTabs">
-                  <span class="termTabInactive">Dashboard</span>
-                  <span class="termTabInactive">Transactions</span>
-                  <span class="termTabActive">Import</span>
-                  <span class="termTabInactive">Categories</span>
-                  <span class="termTabInactive">Budgets</span>
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Import</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
                 </div>
                 <div class="termDivider"></div>
                 <div class="termContent">
-                  <div class="termImportTitle tBlue">Import CSV &mdash; Step 2 of 4: Column Mapping</div>
+                  <div class="termImportSteps">
+                    <span class="tGreen">1:File</span>
+                    <span class="tGreen">2:Map</span>
+                    <span class="termImportStepActive">3:Account</span>
+                    <span class="tDim">4:Preview</span>
+                    <span class="tDim">5:Categorize</span>
+                    <span class="tDim">6:Done</span>
+                  </div>
+                  <div class="termImportTitle tBlue">Select Account for Import</div>
                   <div class="termImportDetect tGreen">&#x2714; Bank detected: Chase Credit Card</div>
                   <div class="termImportField">
                     <span class="tSubtext">File:</span>
                     <span class="tText">~/Downloads/chase-statement-feb-2026.csv</span>
                   </div>
                   <div class="termSection">
-                    <div class="termSectionTitle">Column Mapping</div>
-                    <div class="termMappingRow"><span class="tText">Transaction Date</span><span class="tDim">&rarr;</span><span class="tBlue">Date</span></div>
-                    <div class="termMappingRow"><span class="tText">Description</span><span class="tDim">&rarr;</span><span class="tBlue">Description</span></div>
-                    <div class="termMappingRow"><span class="tText">Amount</span><span class="tDim">&rarr;</span><span class="tBlue">Amount</span></div>
-                    <div class="termMappingRow"><span class="tText">Post Date</span><span class="tDim">&rarr;</span><span class="tDim">Skipped</span></div>
-                    <div class="termMappingRow"><span class="tText">Category</span><span class="tDim">&rarr;</span><span class="tDim">Skipped</span></div>
-                  </div>
-                  <div class="termSection">
-                    <div class="termSectionTitle">Preview (first 3 rows)</div>
-                    <div class="termPreviewRow"><span>2026-02-18</span><span>WHOLE FOODS MARKET #10847</span><span class="tRed">-$127.43</span></div>
-                    <div class="termPreviewRow"><span>2026-02-17</span><span>NETFLIX.COM</span><span class="tRed">-$22.99</span></div>
-                    <div class="termPreviewRow"><span>2026-02-16</span><span>SHELL OIL 57442</span><span class="tRed">-$48.20</span></div>
+                    <div class="termSectionTitle">Select an account for these transactions</div>
+                    <div class="termAccountList">
+                      <div class="termAccountListItem">Chase Checking <span class="tDim">(Checking)</span></div>
+                      <div class="termAccountListItem termAccountListSelected">Chase Sapphire CC <span class="tDim">(Credit Card)</span></div>
+                      <div class="termAccountListItem">Wells Fargo Savings <span class="tDim">(Savings)</span></div>
+                      <div class="termAccountListItem tBlue">+ Create new account</div>
+                    </div>
                   </div>
                   <div class="termImportStats">
                     <span class="tGreen">34 transactions found</span>
@@ -332,37 +419,32 @@
                 </div>
                 <div class="termDivider"></div>
                 <div class="termStatusBar">
-                  <span class="tMauve">NORMAL</span>
-                  <span class="tSubtext">Step 2/4</span>
-                  <span class="termStatusRight tDim">+/-: adjust  Enter: next  Esc: back</span>
+                  <span class="termStatusMode">NORMAL</span>
+                  <span class="tSubtext">Step 3/6</span>
+                  <span class="termStatusRight tDim">j/k navigate | Enter select | n new | Esc back</span>
                 </div>
               </div>
               <!-- Categories Panel -->
               <div id="demoCategories" class="demoPanel" role="tabpanel" aria-labelledby="tabCategories">
-                <div class="termTabs">
-                  <span class="termTabInactive">Dashboard</span>
-                  <span class="termTabInactive">Transactions</span>
-                  <span class="termTabInactive">Import</span>
-                  <span class="termTabActive">Categories</span>
-                  <span class="termTabInactive">Budgets</span>
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Categories</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
                 </div>
                 <div class="termDivider"></div>
                 <div class="termContent">
                   <div class="termSplitPanels">
                     <div class="termPanel termPanelActive">
                       <div class="termPanelTitle tBlue">Categories</div>
-                      <div class="termTree">
-                        <div class="termTreeItem">&#x25BC; <span class="tText">Housing</span></div>
-                        <div class="termTreeChild tSubtext">Rent/Mortgage</div>
-                        <div class="termTreeChild tSubtext">Utilities</div>
-                        <div class="termTreeChild tSubtext">Insurance</div>
-                        <div class="termTreeItem">&#x25BC; <span class="tText">Food</span></div>
-                        <div class="termTreeChild termTreeSelected tGreen">&#x25B8; Groceries</div>
-                        <div class="termTreeChild tSubtext">Dining Out</div>
-                        <div class="termTreeChild tSubtext">Coffee</div>
-                        <div class="termTreeItem">&#x25B8; <span class="tText">Transport</span></div>
-                        <div class="termTreeItem">&#x25B8; <span class="tText">Shopping</span></div>
-                        <div class="termTreeItem">&#x25B8; <span class="tText">Entertainment</span></div>
+                      <div class="termCategoryList">
+                        <div class="termCategoryItem tSubtext">Dining Out</div>
+                        <div class="termCategoryItem tSubtext">Entertainment</div>
+                        <div class="termCategoryItem termCategorySelected tGreen">&#x25B8; Groceries</div>
+                        <div class="termCategoryItem tSubtext">Income</div>
+                        <div class="termCategoryItem tSubtext">Insurance</div>
+                        <div class="termCategoryItem tSubtext">Rent/Mortgage</div>
+                        <div class="termCategoryItem tSubtext">Shopping</div>
+                        <div class="termCategoryItem tSubtext">Transport</div>
+                        <div class="termCategoryItem tSubtext">Utilities</div>
                       </div>
                     </div>
                     <div class="termPanel">
@@ -379,9 +461,67 @@
                 </div>
                 <div class="termDivider"></div>
                 <div class="termStatusBar">
-                  <span class="tMauve">NORMAL</span>
-                  <span class="tSubtext">Feb 2026</span>
-                  <span class="termStatusRight tDim">j/k: move  r: rules panel  :rule to add</span>
+                  <span class="termStatusMode">NORMAL</span>
+                  <span class="tSubtext">Categories | Feb 2026</span>
+                  <span class="termStatusRight tDim">r toggle rules | :rule add | ? help</span>
+                </div>
+              </div>
+              <!-- Budgets Panel -->
+              <div id="demoBudgets" class="demoPanel" role="tabpanel" aria-labelledby="tabBudgets">
+                <div class="termHintBar">
+                  <span class="termHintScreen tBlue">Budgets</span>
+                  <span class="termHintNav tDim">:nav &#x2502; 1-6 &#x2502; Tab</span>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termContent">
+                  <div class="termBudgetList">
+                    <div class="termBudgetRow">
+                      <div class="termBudgetHeader">
+                        <span class="tText">Groceries</span>
+                        <span class="tDim">$687 / $800</span>
+                      </div>
+                      <div class="termProgressBar"><div class="termProgressFill termProgressYellow" style="width: 86%"></div></div>
+                      <span class="termBudgetPct tYellow">86%</span>
+                    </div>
+                    <div class="termBudgetRow">
+                      <div class="termBudgetHeader">
+                        <span class="tText">Dining Out</span>
+                        <span class="tDim">$413 / $400</span>
+                      </div>
+                      <div class="termProgressBar"><div class="termProgressFill termProgressRed" style="width: 100%"></div></div>
+                      <span class="termBudgetPct tRed">103%</span>
+                    </div>
+                    <div class="termBudgetRow">
+                      <div class="termBudgetHeader">
+                        <span class="tText">Transport</span>
+                        <span class="tDim">$212 / $350</span>
+                      </div>
+                      <div class="termProgressBar"><div class="termProgressFill termProgressGreen" style="width: 61%"></div></div>
+                      <span class="termBudgetPct tGreen">61%</span>
+                    </div>
+                    <div class="termBudgetRow">
+                      <div class="termBudgetHeader">
+                        <span class="tText">Shopping</span>
+                        <span class="tDim">$200 / $300</span>
+                      </div>
+                      <div class="termProgressBar"><div class="termProgressFill termProgressGreen" style="width: 67%"></div></div>
+                      <span class="termBudgetPct tGreen">67%</span>
+                    </div>
+                    <div class="termBudgetRow">
+                      <div class="termBudgetHeader">
+                        <span class="tText">Entertainment</span>
+                        <span class="tDim">$23 / $100</span>
+                      </div>
+                      <div class="termProgressBar"><div class="termProgressFill termProgressGreen" style="width: 23%"></div></div>
+                      <span class="termBudgetPct tGreen">23%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="termDivider"></div>
+                <div class="termStatusBar">
+                  <span class="termStatusMode">NORMAL</span>
+                  <span class="tSubtext">Budgets | Feb 2026</span>
+                  <span class="termStatusRight tDim">:budget set | :delete-budget | ? help</span>
                 </div>
               </div>
             </div>
@@ -392,7 +532,7 @@
       <!-- Banks Section -->
       <section id="banks" class="banks">
         <h2 class="sectionTitle reveal">Works with your bank.</h2>
-        <p class="sectionSub reveal">Auto-detects CSV formats from 11+ major banks. Manual mapping for everything else.</p>
+        <p class="sectionSub reveal">Auto-detects CSV formats from 11+ major banks. Manual column mapping for everything else.</p>
         <div class="bankGrid reveal">
           <div class="bankBadge">Wells Fargo</div>
           <div class="bankBadge">Chase</div>
@@ -403,13 +543,6 @@
           <div class="bankBadge">USAA</div>
           <div class="bankBadge">Discover</div>
           <div class="bankBadge bankBadgeMore">& more</div>
-        </div>
-        <div class="formatBadges reveal">
-          <span class="formatBadge">CSV</span>
-          <span class="formatBadge">TSV</span>
-          <span class="formatBadge">OFX</span>
-          <span class="formatBadge">QFX</span>
-          <span class="formatBadge">QIF</span>
         </div>
       </section>
 
@@ -461,12 +594,14 @@ cargo install --path ." aria-label="Copy to clipboard">Copy</button>
           <div class="installBlock reveal">
             <h3>Or use the CLI</h3>
             <div class="codeBlock">
-              <button class="copyBtn" data-copy="budgetui import statement.csv
+              <button class="copyBtn" data-copy="budgetui import statement.csv --account &quot;Chase Checking&quot;
 budgetui export --month 2026-02
-budgetui summary" aria-label="Copy to clipboard">Copy</button>
-<pre class="codePre"><span class="tDim">$</span> budgetui import statement.csv
+budgetui summary
+budgetui accounts" aria-label="Copy to clipboard">Copy</button>
+<pre class="codePre"><span class="tDim">$</span> budgetui import statement.csv --account <span class="tBlue">"Chase Checking"</span>
 <span class="tDim">$</span> budgetui export --month 2026-02
-<span class="tDim">$</span> budgetui summary</pre>
+<span class="tDim">$</span> budgetui summary
+<span class="tDim">$</span> budgetui accounts</pre>
             </div>
           </div>
         </div>
@@ -484,15 +619,17 @@ budgetui summary" aria-label="Copy to clipboard">Copy</button>
             <div class="keyRow"><kbd>Ctrl-d</kbd> / <kbd>Ctrl-u</kbd><span>Page down / up</span></div>
             <div class="keyRow"><kbd>H</kbd> / <kbd>L</kbd><span>Previous / next month</span></div>
             <div class="keyRow"><kbd>Tab</kbd><span>Cycle screens</span></div>
-            <div class="keyRow"><kbd>1</kbd>-<kbd>5</kbd><span>Jump to screen</span></div>
+            <div class="keyRow"><kbd>1</kbd>-<kbd>6</kbd><span>Jump to screen</span></div>
+            <div class="keyRow"><kbd>:nav</kbd><span>Open screen navigator</span></div>
           </div>
           <div class="keysColumn reveal">
             <h3>Commands</h3>
             <div class="keyRow"><kbd>:</kbd><span>Enter command mode</span></div>
             <div class="keyRow"><kbd>/</kbd><span>Search transactions</span></div>
             <div class="keyRow"><kbd>?</kbd><span>Show help</span></div>
-            <div class="keyRow"><kbd>e</kbd><span>Edit selected item</span></div>
-            <div class="keyRow"><kbd>D</kbd><span>Delete selected item</span></div>
+            <div class="keyRow"><kbd>D</kbd><span>Delete selected transaction</span></div>
+            <div class="keyRow"><kbd>n</kbd> / <kbd>p</kbd><span>Cycle accounts (Dashboard)</span></div>
+            <div class="keyRow"><kbd>r</kbd><span>Toggle rules (Categories)</span></div>
             <div class="keyRow"><kbd>Ctrl-q</kbd><span>Quit</span></div>
           </div>
         </div>
